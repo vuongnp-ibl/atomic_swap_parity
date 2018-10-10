@@ -1,0 +1,79 @@
+node0:"0x00bd138abd70e2f00903268f3db08f2d25677c9e"
+user0:"0x004ec07d2329997267ec62b4166639513386f32e"
+node1:"0x00aa39d30f0d20ff03a22ccfc30b7efbfca597c2"
+
+
+curl --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x004ec07d2329997267ec62b4166639513386f32e","to":"0x00bd138abd70e2f00903268f3db08f2d25677c9e","value":"0xde0b6b3a7640000"}, "user"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8540
+
+
+curl --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":
+["0x00bd138abd70e2f00903268f3db08f2d25677c9e", "latest"],"id":1}'
+ -H "Content-Type: application/json" -X POST localhost:8540
+
+
+
+ // Dung eth_call
+ params: [{
+  "from": "0x004ec07d2329997267ec62b4166639513386f32e",
+  "to": "0x00bd138abd70e2f00903268f3db08f2d25677c9e",
+  "value": "0x64" // 100
+}]
+
+curl --data '{"method":"eth_call","params":[{"from": "0x004ec07d2329997267ec62b4166639513386f32e","to": "0x00bd138abd70e2f00903268f3db08f2d25677c9e","value": "0x64"}],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8540
+
+// Get eth_getBalance
+curl --data '{"method":"eth_getBalance","params":["0x64585e0bbea7543be4bd2400f198502841ba2433"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8540
+
+// Send money
+"params":[{"from":"0x004ec07d2329997267ec62b4166639513386f32e",
+            "to":"0x00bd138abd70e2f00903268f3db08f2d25677c9e",
+            "value":"0x64",
+            "gas": "0x5208", 
+            "gasPrice": "1",
+        }
+curl --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x004ec07d2329997267ec62b4166639513386f32e","to":"0x00bd138abd70e2f00903268f3db08f2d25677c9e","value":"0x64"}, "user"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8540
+
+curl --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x9e74b624712054e01d2e808b310750247582a3e5","to":"0x00aa39d30f0d20ff03a22ccfc30b7efbfca597c2","value":"0x64"}, "user"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8540
+
+
+// Estimate gas
+curl --data '{"method":"eth_estimateGas","params":[{"from":"0x004ec07d2329997267ec62b4166639513386f32e","to":"0x00bd138abd70e2f00903268f3db08f2d25677c9e","value":"0x64"}],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8540
+// Estimate gasPrice
+curl --data '{"method":"eth_gasPrice","params":[{"from":"0x004ec07d2329997267ec62b4166639513386f32e","to":"0x00bd138abd70e2f00903268f3db08f2d25677c9e","value":"0x64"}],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8540
+"gas": "0x5208", // 21000
+"gasPrice": "", // 1000
+
+
+curl --data '{"method":"eth_getTransactionReceipt","params":["0xeab459055dccdd37e69e56bc5ce39e4196fd9e282407cc27cdb8fd7645426525"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8540
+
+
+// Unlock Account
+curl --data '{"method":"personal_unlockAccount","params":["0x004ec07d2329997267ec62b4166639513386f32e","user",null],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8540
+
+
+//plus
+[account]
+password = ["node.pwds"]
+[mining]
+engine_signer = "a27819128acea6038da32299ba5394fedc13cb47"
+reseal_on_txs = "none"
+
+
+f864038331303084313030309400bd138abd70e2f00903268f3db08f2d25677c9e64801ba052046502d6807c15dc78341c8ca11d641c45ae01f57028ce55f7677f5473a5e1a02d1547d8df323919fd9c01ea1de02cf88d052f954277cc5e80005935c02aaf27
+
+
+node 0:
+// [account]
+// password = ["node.pwds"]
+// [mining]
+// engine_signer = "0x00bd138abd70e2f00903268f3db08f2d25677c9e"
+// reseal_on_txs = "none"
+node 1:
+// [account]
+// password = ["node.pwds"]
+// [mining]
+// engine_signer = "0x00aa39d30f0d20ff03a22ccfc30b7efbfca597c2"
+// reseal_on_txs = "none"
+
+
+curl --data-binary '{"jsonrpc": "2.0", "method": "secretstore_signRawHash", "params": ["0xfe76fc73f207da527fb1c66cb7822d0d467063c7", "user"], "id":1 }' -H 'content-type: application/json' http://127.0.0.1:8540/

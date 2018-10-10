@@ -1,0 +1,20 @@
+        //user of node 0
+        //private key: 3df8095dfbae93d8c7f1143b217a483d57a7f745e2542425dfe2fa25264cb2e8 
+        "0x004ec07d2329997267Ec62b4166639513386F32E": { 
+            "balance": "10000000000000000000000"
+        },
+        //user1 of node 0
+        //private key: c51d7ec2e45b691751b7875ad99fb9a945046d7e420ad4c9b6380a22e638de07
+        "0x00d695cd9b0ff4edc8ce55b493aec495b597e235": {
+            "balance": "10000000000000000000000"
+        },
+        //user2 of node 1
+        //private key: 8a1ed325006eba340186d8ab82f4ded513b110a9fbecf784515dbebce9889fd3
+        "0x001ca0bb54fcc1d736ccd820f14316dedaafd772": {
+            "balance": "10000000000000000000000"
+        },
+        //user3 of node 1
+        //private key: 2ddbee529a6953b86479488c82359f862819b83a603ecb962adbfc574893a0b5
+        "0x00cb25f6fd16a52e24edd2c8fd62071dc29a035c": {
+            "balance": "10000000000000000000000"
+}

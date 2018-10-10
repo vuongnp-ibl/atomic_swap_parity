@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script src="https://cdn.rawgit.com/ethereumjs/browser-builds/2fb69a714afe092b06645286f14b94f41e5c062c/dist/ethereumjs-tx.js"></script>
+    <script>
+        const EthereumTx = require('ethereumjs-tx')
+        const privateKey = Buffer.from('6331fe82059b9624aaacfee2f9b922d153c5063e5bfaf3d4d2b2e9419f5d4bd5', 'hex')
+
+        const txParams = {
+        nonce: '0x00',
+        gasPrice: '0x09184e72a000',
+        gasLimit: '0x2710',
+        to: '0x00bd138abd70e2f00903268f3db08f2d25677c9e',
+        value: '0x64'
+        }
+
+        const tx = new EthereumTx(txParams)
+        tx.sign(privateKey)
+        const serializedTx = tx.serialize()
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
